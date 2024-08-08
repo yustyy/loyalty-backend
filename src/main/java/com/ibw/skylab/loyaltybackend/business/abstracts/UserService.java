@@ -1,0 +1,23 @@
+package com.ibw.skylab.loyaltybackend.business.abstracts;
+
+import com.ibw.skylab.loyaltybackend.core.utilities.results.DataResult;
+import com.ibw.skylab.loyaltybackend.core.utilities.results.Result;
+import com.ibw.skylab.loyaltybackend.entities.dtos.user.CreateUserDto;
+import com.ibw.skylab.loyaltybackend.entities.dtos.user.GetUserDto;
+import com.ibw.skylab.loyaltybackend.entities.dtos.user.UpdateUserDto;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+public interface UserService extends UserDetailsService {
+
+    Result addUser(CreateUserDto createUserDto);
+
+    DataResult<GetUserDto> getUserById(int userId);
+
+    DataResult<GetUserDto> getUserByMail(String schoolMail);
+
+    Result deleteUser(int userId);
+
+    DataResult<GetUserDto> updateUser(UpdateUserDto updateUserDto);
+
+
+}
