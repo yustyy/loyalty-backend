@@ -13,7 +13,9 @@ public interface UserService extends UserDetailsService {
 
     DataResult<GetUserDto> getUserById(int userId);
 
-    DataResult<GetUserDto> getUserByMail(String schoolMail);
+    DataResult<GetUserDto> getUserByEmail(String email);
+
+    DataResult<GetUserDto> getUserByUsername(String username);
 
     Result deleteUser(int userId);
 

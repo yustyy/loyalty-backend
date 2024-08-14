@@ -9,17 +9,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CreateUserDto {
 
-    private int firstName;
+    private String firstName;
 
-    private int lastName;
+    private String lastName;
 
-    private int username;
+    private String username;
 
-    private int email;
+    private String email;
 
-    private int phoneNumber;
+    private String phoneNumber;
 
-    private int password;
+    private String password;
 
 
 }
