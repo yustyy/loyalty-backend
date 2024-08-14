@@ -15,7 +15,9 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -134,6 +136,34 @@ public class UserManager implements UserService {
         userDao.save(user.get());
 
         return new SuccessDataResult<>(modelMapper.map(user.get(), GetUserDto.class));
+    }
+
+    @Override
+    public DataResult<List<GetUserDto>> getAllUsers() {
+        var result = userDao.findAllByDeleted(false);
+
+        if(!result.isPresent()){
+            return new ErrorDataResult<>(UserMessages.usersNotFound);
+        }
+
+        List<GetUserDto> userList = new ArrayList<>();
+
+        result.get().forEach(user -> {
+            userList.add(GetUserDto.builder()
+                            .id(user.getId())
+                    .firstName(user.getFirstName())
+                    .lastName(user.getLastName())
+                    .email(user.getEmail())
+                    .phoneNumber(user.getPhoneNumber())
+                    .username(user.getUsername())
+                    .blockchainAddress(user.getBlockchainAddress())
+                    .build());
+        });
+
+        return new SuccessDataResult<>(userList, UserMessages.usersListed);
+
+
+
     }
 
     @Override

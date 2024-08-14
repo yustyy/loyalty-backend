@@ -30,6 +30,6 @@ public abstract class BaseEntity {
     private Date deletedDate;
 
     @Column(name = "deleted")
-    private boolean deleted;
+    private boolean deleted = false;
 
 }

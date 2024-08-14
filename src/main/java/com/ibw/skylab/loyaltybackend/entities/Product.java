@@ -28,6 +28,10 @@ public class Product extends BaseEntity{
     @Column(name ="nft_address")
     private String nftAddress;
 
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private Company company;
+
     @ManyToMany
     @JoinTable(
             name = "product_category",
@@ -39,5 +43,6 @@ public class Product extends BaseEntity{
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
 
 }

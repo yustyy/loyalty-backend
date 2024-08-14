@@ -30,15 +30,10 @@ public class AuthManager implements AuthService {
     @Override
     public Result register(CreateUserDto createUserDto) {
         var userEmailResult = userService.getUserByEmail(createUserDto.getEmail());
-
-        if(!userEmailResult.isSuccess()){
-            return userEmailResult;
-        }
-
         var userUsernameResult = userService.getUserByUsername(createUserDto.getUsername());
 
-        if (!userUsernameResult.isSuccess()) {
-            return userUsernameResult;
+        if (userUsernameResult.isSuccess()||userEmailResult.isSuccess()) {
+            return new ErrorResult(AuthMessages.userAlreadyExists);
         }
 
         userService.addUser(createUserDto);

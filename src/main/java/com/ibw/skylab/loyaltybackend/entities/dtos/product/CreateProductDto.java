@@ -5,19 +5,19 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigInteger;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateProductDto {
 
-    private String address;
+    private String name;
 
-    private String manufactureDate;
+    private String description;
 
-    private String collectionName;
+    private int companyId;
 
-    private BigInteger rarityPercentage;
-
+    private List<Integer> categoryIds;
 
 }

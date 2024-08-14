@@ -37,5 +37,16 @@ public class CompanyController {
         return ResponseEntity.badRequest().body(result);
     }
 
+    @GetMapping("/getAllCompanies")
+    public ResponseEntity<Result> getAllCompanies(){
+        var result = companyService.getAllCompanies();
+
+        if (result.isSuccess()){
+            return ResponseEntity.ok(result);
+        }
+
+        return ResponseEntity.badRequest().body(result);
+    }
+
 
 }

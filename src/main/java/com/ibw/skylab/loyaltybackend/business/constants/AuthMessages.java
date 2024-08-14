@@ -6,4 +6,5 @@ public class AuthMessages {
     public static String passwordCannotBeNull = "Password cannot be null";
     public static String tokenGeneratedSuccessfully = "Token generated successfully";
     public static String invalidUsernameOrPassword = "Invalid username or password";
+    public static String userAlreadyExists = "User already exists";
 }

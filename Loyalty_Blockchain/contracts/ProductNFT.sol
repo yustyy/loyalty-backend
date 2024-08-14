@@ -61,7 +61,7 @@ contract ProductNFT is ERC721, Ownable {
 
         string memory json = Base64.encode(bytes(string(abi.encodePacked(
             '{"name": "Product NFT #', uint2str(tokenId), '",',
-            '"description": "This NFT represents a unique product from the collection.', 
+            '"description": "This NFT represents a unique product from the collection.',
             '"manufacture_date": "', product.manufactureDate, '",',
             '"collection_name": "', product.collectionName, '",',
             '"rarity_percentage": "', uint2str(product.rarityPercentage), '%"}'

@@ -13,6 +13,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -107,5 +108,17 @@ public class CompanyManager implements CompanyService {
         }
 
         return new SuccessDataResult<>(result.get(), CompanyMessages.companyFound);
+    }
+
+    @Override
+    public DataResult<List<Company>> getAllCompanies() {
+
+        var result = companyDao.findAllByDeleted(false);
+
+        if (!result.isPresent()){
+            return new ErrorDataResult<>(CompanyMessages.companiesNotFound);
+        }
+
+        return new SuccessDataResult<>(result.get(), CompanyMessages.companiesListed);
     }
 }

@@ -13,4 +13,6 @@ public class UserMessages {
     public static String userNotFound = "User not found";
     public static String userDeleted = "User deleted";
     public static String userListed = "User listed";
+    public static String usersNotFound = "Users not found";
+    public static String usersListed = "Users listed";
 }

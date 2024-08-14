@@ -1,5 +1,9 @@
 package com.ibw.skylab.loyaltybackend.business.constants;
 
+import com.ibw.skylab.loyaltybackend.entities.Company;
+
+import java.util.List;
+
 public class CompanyMessages {
     public static String companyTypeCannotBeEmpty = "Company type must be INDIVIDUAL or CORPORATE";
     public static String emailCannotBeEmpty = "Email cannot be empty";
@@ -15,4 +19,6 @@ public class CompanyMessages {
     public static String companyAdded = "Company added";
     public static String companyNotFound = "Company not found";
     public static String companyFound = "Company found";
+    public static String companiesNotFound = "Companies not found";
+    public static String companiesListed = "Companies listed";
 }

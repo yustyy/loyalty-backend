@@ -40,7 +40,7 @@ public class SecurityConfig {
                         x
                                 .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                                 .requestMatchers("/**").permitAll()
-                                .anyRequest().authenticated()
+                                .anyRequest().permitAll()
                 )
                 .sessionManagement(x -> x.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
